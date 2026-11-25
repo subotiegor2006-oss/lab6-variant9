@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; }
+    h1 { color: #2c3e50; }
+    .meta { color: #7f8c8d; margin-bottom: 24px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 10px 12px; text-align: left; }
+    th { background: #3498db; color: #fff; }
+    tr:nth-child(even) { background: #f5f7fa; }
+  </style>
+</head>
+<body>
+  <h1>{{ title }}</h1>
+  <p class="meta">Курс: {{ course }}</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>№</th>
+        <th>ФИО</th>
+        <th>Группа</th>
+        <th>Балл</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in students %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ s.name }}</td>
+        <td>{{ s.group }}</td>
+        <td>{{ s.score }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p style="margin-top: 24px; color: #95a5a6;">
+    Сгенерировано шаблоном Jinja2 · ЛР №6, вариант 9
+  </p>
+</body>
+</html>
